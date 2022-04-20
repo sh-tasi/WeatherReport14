@@ -1,9 +1,5 @@
 // create any div           P.S  變數請加上自己的識別碼 全域變數會影響到其他的js檔案
 
-let TaoyuanTitle=document.createElement("div");
-TaoyuanTitle.className="TaoyuanTitle";
-TaoyuanTitle.textContent="桃園";
-document.getElementById("Taoyuan").appendChild(TaoyuanTitle);
 function getTaipeiDate(){
     let today = new Date();
     let year = today.getFullYear();
@@ -77,7 +73,7 @@ function getTaouanData(url){
             tempObj.afterTmrNightDesc=locationList[i].weatherElement[0].time[3].elementValue[0].value
             TaouanData.push(tempObj)
         }
-        renderTaipeiWeather(TaouanData)
+        renderTaoyuanWeather(TaouanData)
         
     }
     req.send();
@@ -85,12 +81,16 @@ function getTaouanData(url){
 console.log(TaouanData);
 getTaouanData(TaoUrl);
 
-function renderTaipeiWeather(wantedData){
+function renderTaoyuanWeather(wantedData){
     let dateResult = getTaipeiDate();
     let tmr = dateResult["tmr"].split("-");
     let afterTmr = dateResult["afterTmr"].split("-");
 
     let Taoyuan = document.querySelector("#Taoyuan");
+    let TaoyuanTitle=document.createElement("div");
+    TaoyuanTitle.className="TaoyuanTitle";
+    TaoyuanTitle.textContent="桃園";
+    document.getElementById("Taoyuan").appendChild(TaoyuanTitle);
 
     let taipeiSection = document.createElement("table");
     taipeiSection.setAttribute("class", "weather-report");
