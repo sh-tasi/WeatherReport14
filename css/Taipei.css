@@ -1,3 +1,44 @@
-.test{
-    color: blue;
+table {
+    max-width: 95%;
+    line-height: 22px;
 }
+
+th, td {
+    border: 1px solid #DDDDDD;
+    text-align: center;
+    padding: 10px 18px;
+    vertical-align: middle;
+}
+
+th {
+    font-weight: bold;
+    color: white;
+}
+
+.title-top {
+    background-color: #42A1AE;
+}
+
+.title-district {
+    width: 10%;
+}
+
+.title-time {
+    width: 6%;
+}
+
+.title-date {
+    width: 42%;
+}
+
+
+.taipei-district {
+    font-size: 20px;
+    background-color: #0F838C;
+}
+
+.description {
+    text-align: left;
+}
+
+
