@@ -1,4 +1,133 @@
 // create any div           P.S  變數請加上自己的識別碼 全域變數會影響到其他的js檔案
+let Top = document.querySelector(".topTitle");
+Top.innerHTML="北桃竹苗兩日天氣預報"
+let TaipeiTable=document.getElementById("Taipei");
+let TaoyuanTable=document.getElementById("Taoyuan");
+let HsinchuTable=document.getElementById("Hsinchu");
+let MiaoliTable=document.getElementById("Miaoli");
+let CitybuttonDiv=document.createElement("div");
+CitybuttonDiv.setAttribute("class","CitybuttonDiv");
+let Allbt=document.createElement("div");
+let TaipeiBt=document.createElement("div");
+let TaoyuanBt=document.createElement("div");
+let HsinchuBt=document.createElement("div");
+let MiaoliBt=document.createElement("div");
+Allbt.setAttribute("id","Allbt")
+Allbt.setAttribute("class","topBt")
+Allbt.textContent="全部"
+Allbt.onclick=function(){
+
+    TaipeiTable.style.display="block";
+    TaoyuanTable.style.display="block";
+    HsinchuTable.style.display="block";
+    MiaoliTable.style.display="block";
+    Allbt.style.backgroundColor="#0F838C";
+    TaipeiBt.style.backgroundColor="#FFFFFF";
+    TaoyuanBt.style.backgroundColor="#FFFFFF";
+    HsinchuBt.style.backgroundColor="#FFFFFF";
+    MiaoliBt.style.backgroundColor="#FFFFFF";
+    Allbt.style.color="#FFFFFF";
+    TaipeiBt.style.color="#0F838C";
+    TaoyuanBt.style.color="#0F838C";
+    HsinchuBt.style.color="#0F838C";
+    MiaoliBt.style.color="#0F838C";
+}
+TaipeiBt.setAttribute("id","TaipeiBt")
+TaipeiBt.setAttribute("class","topBt")
+TaipeiBt.textContent="台北"
+TaipeiBt.onclick=function(){
+    
+    TaipeiTable.style.display="block";
+    TaoyuanTable.style.display="none";
+    HsinchuTable.style.display="none";
+    MiaoliTable.style.display="none";
+    Allbt.style.backgroundColor="#FFFFFF";
+    TaipeiBt.style.backgroundColor="#0F838C";
+    TaoyuanBt.style.backgroundColor="#FFFFFF";
+    HsinchuBt.style.backgroundColor="#FFFFFF";
+    MiaoliBt.style.backgroundColor="#FFFFFF";
+    Allbt.style.color="#0F838C";
+    TaipeiBt.style.color="#FFFFFF";
+    TaoyuanBt.style.color="#0F838C";
+    HsinchuBt.style.color="#0F838C";
+    MiaoliBt.style.color="#0F838C";
+}
+TaoyuanBt.setAttribute("id","TaoyuanBt")
+TaoyuanBt.setAttribute("class","topBt")
+TaoyuanBt.textContent="桃園"
+TaoyuanBt.onclick=function(){
+    
+    TaipeiTable.style.display="none";
+    TaoyuanTable.style.display="block";
+    HsinchuTable.style.display="none";
+    MiaoliTable.style.display="none";
+    Allbt.style.backgroundColor="#FFFFFF";
+    TaipeiBt.style.backgroundColor="#FFFFFF";
+    TaoyuanBt.style.backgroundColor="#0F838C";
+    HsinchuBt.style.backgroundColor="#FFFFFF";
+    MiaoliBt.style.backgroundColor="#FFFFFF";
+    Allbt.style.color="#0F838C";
+    TaipeiBt.style.color="#0F838C";
+    TaoyuanBt.style.color="#FFFFFF";
+    HsinchuBt.style.color="#0F838C";
+    MiaoliBt.style.color="#0F838C";
+}
+HsinchuBt.setAttribute("id","HsinchuBt")
+HsinchuBt.setAttribute("class","topBt")
+HsinchuBt.textContent="新竹"
+HsinchuBt.onclick=function(){
+    
+    TaipeiTable.style.display="none";
+    TaoyuanTable.style.display="none";
+    HsinchuTable.style.display="block";
+    MiaoliTable.style.display="none";
+    Allbt.style.backgroundColor="#FFFFFF";
+    TaipeiBt.style.backgroundColor="#FFFFFF";
+    TaoyuanBt.style.backgroundColor="#FFFFFF";
+    HsinchuBt.style.backgroundColor="#0F838C";
+    MiaoliBt.style.backgroundColor="#FFFFFF";
+    Allbt.style.color="#0F838C";
+    TaipeiBt.style.color="#0F838C";
+    TaoyuanBt.style.color="#0F838C";
+    HsinchuBt.style.color="#FFFFFF";
+    MiaoliBt.style.color="#0F838C";
+}
+MiaoliBt.setAttribute("id","MiaoliBt")
+MiaoliBt.setAttribute("class","topBt")
+MiaoliBt.textContent="苗栗"
+MiaoliBt.onclick=function(){
+    TaipeiTable.style.display="none";
+    TaoyuanTable.style.display="none";
+    HsinchuTable.style.display="none";
+    MiaoliTable.style.display="block";
+    Allbt.style.backgroundColor="#FFFFFF";
+    TaipeiBt.style.backgroundColor="#FFFFFF";
+    TaoyuanBt.style.backgroundColor="#FFFFFF";
+    HsinchuBt.style.backgroundColor="#FFFFFF";
+    MiaoliBt.style.backgroundColor="#0F838C";
+    Allbt.style.color="#0F838C";
+    TaipeiBt.style.color="#0F838C";
+    TaoyuanBt.style.color="#0F838C";
+    HsinchuBt.style.color="#0F838C";
+    MiaoliBt.style.color="#FFFFFF";
+}
+CitybuttonDiv.appendChild(Allbt)
+CitybuttonDiv.appendChild(TaipeiBt)
+CitybuttonDiv.appendChild(TaoyuanBt)
+CitybuttonDiv.appendChild(HsinchuBt)
+CitybuttonDiv.appendChild(MiaoliBt)
+Top.appendChild(CitybuttonDiv)
+
+
+
+
+
+
+
+
+
+
+
 
 function getTaipeiDate(){
     let today = new Date();
@@ -87,10 +216,7 @@ function renderTaoyuanWeather(wantedData){
     let afterTmr = dateResult["afterTmr"].split("-");
 
     let Taoyuan = document.querySelector("#Taoyuan");
-    let TaoyuanTitle=document.createElement("div");
-    TaoyuanTitle.className="TaoyuanTitle";
-    TaoyuanTitle.textContent="桃園";
-    document.getElementById("Taoyuan").appendChild(TaoyuanTitle);
+
 
     let taipeiSection = document.createElement("table");
     taipeiSection.setAttribute("class", "weather-report");
