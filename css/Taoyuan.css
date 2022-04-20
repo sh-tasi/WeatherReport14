@@ -1,3 +1,46 @@
-.test4{
-    color: tan;
+.TaoyuanTitle{
+    font-weight: bold;
+    font-size: 34px;
+}
+#Taoyuan table {
+    max-width: 95%;
+    line-height: 22px;
+}
+
+#Taoyuan th, td {
+    border: 1px solid #DDDDDD;
+    text-align: center;
+    padding: 10px 18px;
+    vertical-align: middle;
+}
+
+#Taoyuan th {
+    font-weight: bold;
+    color: white;
+}
+
+#Taoyuan .title-top {
+    background-color: #42A1AE;
+}
+
+#Taoyuan .title-district {
+    width: 10%;
+}
+
+#Taoyuan .title-time {
+    width: 6%;
+}
+
+#Taoyuan .title-date {
+    width: 42%;
+}
+
+
+#Taoyuan .taipei-district {
+    font-size: 20px;
+    background-color: #0F838C;
+}
+
+#Taoyuan .description {
+    text-align: left;
 }
