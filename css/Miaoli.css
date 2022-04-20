@@ -1,3 +1,55 @@
-.test2{
-    color: brown;
+#Miaoli > .m_title {
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    color: #0F838C;
+    font-weight: 2px;
+}
+
+#Miaoli > .m_table {
+    border: 1px solid;
+    border-collapse: collapse;
+    border-radius: 8px;
+    max-width: 95%;
+    line-height: 22px;    
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Miaoli > .m_table th,td {
+    border: 1px solid #DDDDDD;
+    text-align: center;
+    padding: 10px 18px;
+    vertical-align: middle;
+}
+
+#Miaoli > .m_table th {
+    font-weight: bold;
+    color: white;
+}
+
+.m_header {
+    background-color: #42A1AE;
+}
+
+#m_header_country {
+    width: 10%;
+}
+
+#m_header_time {
+    width: 6%;
+}
+
+.m_header_date {
+    width: 42%;
+}
+
+.m_country_name {
+    font-size: 20px;
+    background-color: #0F838C;
+    color: white;
+}
+
+.m_description {
+    text-align: left;
 }
