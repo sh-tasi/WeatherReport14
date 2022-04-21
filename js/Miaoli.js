@@ -5,8 +5,6 @@ function get_miaoli_data(){
     // 創建苗栗標題
     let miaoli_header = document.createElement("div");
     miaoli_header.className = "m_title";
-    miaoli_header.textContent = "苗栗縣未來 2 天天氣預報";
-
 
     // 創建 Table
     let miaoli_country=document.createElement("table");      
@@ -34,10 +32,10 @@ function get_miaoli_data(){
     // 表格標題
     miaoli_country.innerHTML = `
     <tr class="m_header">
-        <th id="m_header_country">鄉鎮市區</th>
+        <th id="m_header_country">地區</th>
         <th id="m_header_time">時間</th>
-        <th class="m_header_date">${tomorrow}<br/>${tomorrow_day}</th>
-        <th class="m_header_date">${after_tomorrow}<br/>${after_tomorrow_day}</th>
+        <th class="m_header_date">${tomorrow.substring(5,7)}/${tomorrow.substring(8,10)}<br/>${tomorrow_day}</th>
+        <th class="m_header_date">${after_tomorrow.substring(5,7)}/${after_tomorrow.substring(8,10)}<br/>${after_tomorrow_day}</th>
     </tr>
     `
 
