@@ -1,7 +1,6 @@
 #Miaoli > .m_title {
     font-size: 20px;
     text-align: center;
-    padding: 10px;
     color: #0F838C;
     font-weight: 2px;
 }
@@ -12,8 +11,6 @@
     border-radius: 8px;
     max-width: 95%;
     line-height: 22px;    
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #Miaoli > .m_table th,td {
