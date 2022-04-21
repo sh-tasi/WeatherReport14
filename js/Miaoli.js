@@ -34,8 +34,8 @@ function get_miaoli_data(){
     <tr class="m_header">
         <th id="m_header_country">地區</th>
         <th id="m_header_time">時間</th>
-        <th class="m_header_date">${tomorrow.substring(5,7)}/${tomorrow.substring(8,10)}<br/>${tomorrow_day}</th>
-        <th class="m_header_date">${after_tomorrow.substring(5,7)}/${after_tomorrow.substring(8,10)}<br/>${after_tomorrow_day}</th>
+        <th class="m_header_date">${tomorrow.substring(5,7)} / ${tomorrow.substring(8,10)}<br/>${tomorrow_day}</th>
+        <th class="m_header_date">${after_tomorrow.substring(5,7)} / ${after_tomorrow.substring(8,10)}<br/>${after_tomorrow_day}</th>
     </tr>
     `
 
