@@ -174,7 +174,7 @@ function renderHsinchuWeather(wantedData, region) {
     titleTop.setAttribute("class", "title-top");
 
     // ============================================================
-    createThTage(titleTop, "th", "title-district", `地區: ${region}`, null, null)
+    createThTage(titleTop, "th", "title-district", "地區", null, null)
 
     createThTage(titleTop, "th", "title-time", "時間", null, null)
     // ============================================================
