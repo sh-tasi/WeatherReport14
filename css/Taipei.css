@@ -3,7 +3,8 @@ table {
     line-height: 22px;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #DDDDDD;
     text-align: center;
     padding: 10px 18px;
@@ -40,5 +41,3 @@ th {
 .description {
     text-align: left;
 }
-
-

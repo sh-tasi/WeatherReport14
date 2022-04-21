@@ -1,3 +1,43 @@
-.test3{
-    color:black;
+.Hsinchu-district {
+    font-size: 20px;
+    background-color: #0F838C;
+}
+
+#Hsinchu>table {
+    max-width: 95%;
+    line-height: 22px;
+}
+
+#Hsinchu>th,
+td {
+    border: 1px solid #DDDDDD;
+    text-align: center;
+    padding: 10px 18px;
+    vertical-align: middle;
+}
+
+#Hsinchu>th {
+    font-weight: bold;
+    color: white;
+}
+
+#Hsinchu>.Hsinchutitle-top {
+    background-color: #42A1AE;
+}
+
+#Hsinchu>.title-districtHsinchu {
+    width: 10%;
+}
+
+#Hsinchu>.title-time {
+    width: 6%;
+}
+
+#Hsinchu>.title-date {
+    width: 42%;
+}
+
+
+#Hsinchu>.description {
+    text-align: left;
 }
