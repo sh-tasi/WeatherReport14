@@ -10,7 +10,8 @@
     border-collapse: collapse;
     border-radius: 8px;
     max-width: 95%;
-    line-height: 22px;    
+    line-height: 22px; 
+    margin: 0 auto;   
 }
 
 #Miaoli > .m_table th,td {
@@ -45,6 +46,7 @@
     font-size: 20px;
     background-color: #0F838C;
     color: white;
+    font-weight: bold;
 }
 
 .m_description {

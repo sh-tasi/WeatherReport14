@@ -1,6 +1,11 @@
+body {
+    padding-bottom: 60px;
+}
+
 table {
     max-width: 95%;
     line-height: 22px;
+    margin: 0 auto;
 }
 
 th,
