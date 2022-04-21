@@ -1,35 +1,44 @@
-// This flag is to prevent the condition of disorder fetching data via API.
-let isLoading = false;
-function detectLoading(signal) {
-    isLoading = signal;
-}
+// // This flag is to prevent the condition of disorder fetching data via API.
+// let isLoading = false;
+// function detectLoading(signal) {
+//     isLoading = signal;
+// }
 
-let dateResult = getTaipeiDate();
-// This function is to display the counties by order but there is no animation at the bottom when fetching data by API.
-// We can add a loading animation.
-const urlList = ["061", "005", "009", "013"]
+
+
+// let HsinchuDateResult = getHsinchuDate();
+// // This function is to display the counties by order but there is no animation at the bottom when fetching data by API.
+// // We can add a loading animation.
+// const HsinchuuUrlList = ["061", "005", "009", "013"]
+// const region = ["台北市", "桃園市", "新竹縣", "苗栗縣"]
+// let count = 0
+// const HsinchuuUrl = `https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-${HsinchuuUrlList[count]}?Authorization=CWB-128F473D-B2BF-4B83-A58E-9D6B67F3212E&elementName=WeatherDescription&startTime=${HsinchuDateResult.tmr}T06%3A00%3A00%2C${HsinchuDateResult.tmr}T18%3A00%3A00%2C${HsinchuDateResult.afterTmr}T06%3A00%3A00%2C${HsinchuDateResult.afterTmr}T18%3A00%3A00`;
+// getHsinchuData(HsinchuuUrl, region[count])
+// window.addEventListener("scroll", () => {
+//     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+//     const scrlled = window.scrollY;
+
+//     if (Math.ceil(scrlled) === scrollable) {
+//         if (count < 4 && isLoading === false) {
+//             count += 1
+//             const HsinchuuUrl = `https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-${HsinchuuUrlList[count]}?Authorization=CWB-128F473D-B2BF-4B83-A58E-9D6B67F3212E&elementName=WeatherDescription&startTime=${HsinchuDateResult.tmr}T06%3A00%3A00%2C${HsinchuDateResult.tmr}T18%3A00%3A00%2C${HsinchuDateResult.afterTmr}T06%3A00%3A00%2C${HsinchuDateResult.afterTmr}T18%3A00%3A00`;
+//             getHsinchuData(HsinchuuUrl, region[count])
+//         };
+//     }
+// }); 
+let HsinchuDateResult = getHsinchuDate();
+const HsinchuuUrlList = ["061", "005", "009", "013"]
 const region = ["台北市", "桃園市", "新竹縣", "苗栗縣"]
-let count = 0
-const url = `https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-${urlList[count]}?Authorization=CWB-128F473D-B2BF-4B83-A58E-9D6B67F3212E&elementName=WeatherDescription&startTime=${dateResult.tmr}T06%3A00%3A00%2C${dateResult.tmr}T18%3A00%3A00%2C${dateResult.afterTmr}T06%3A00%3A00%2C${dateResult.afterTmr}T18%3A00%3A00`;
-getTaipeiData(url, region[count])
-window.addEventListener("scroll", () => {
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const scrlled = window.scrollY;
-
-    if (Math.ceil(scrlled) === scrollable) {
-        if (count < 4 && isLoading === false) {
-            count += 1
-            const url = `https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-${urlList[count]}?Authorization=CWB-128F473D-B2BF-4B83-A58E-9D6B67F3212E&elementName=WeatherDescription&startTime=${dateResult.tmr}T06%3A00%3A00%2C${dateResult.tmr}T18%3A00%3A00%2C${dateResult.afterTmr}T06%3A00%3A00%2C${dateResult.afterTmr}T18%3A00%3A00`;
-            getTaipeiData(url, region[count])
-        };
-    }
-});
+const HsinchuuUrl = `https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-${HsinchuuUrlList[2]}?Authorization=CWB-29C680B9-7774-4061-8C58-7BB71F2805C8&elementName=WeatherDescription&startTime=${HsinchuDateResult.tmr}T06%3A00%3A00%2C${HsinchuDateResult.tmr}T18%3A00%3A00%2C${HsinchuDateResult.afterTmr}T06%3A00%3A00%2C${HsinchuDateResult.afterTmr}T18%3A00%3A00`;
+getHsinchuData(HsinchuuUrl, region[2])
 
 
 
 //  The code, below, refers from my teammate Kailun.
 // 取得明天、後天的日期與指定時間
-function getTaipeiDate() {
+// OK
+
+function getHsinchuDate() {
     let today = new Date();
     let year = today.getFullYear();
     let month = today.getMonth();
@@ -64,38 +73,38 @@ function getTaipeiDate() {
 }
 
 // 取得 台北市未來一周天氣預報 資料
-function getTaipeiData(url, region) {
-    detectLoading(true)
-    fetch(url)
+function getHsinchuData(HsinchuuUrl, region) {
+    // detectLoading(true)
+    fetch(HsinchuuUrl)
         .then(response => response.json())
         .then(data => {
-            sortData(data, region)
-            detectLoading(false)
+            HsinchuSortData(data, region)
+            // detectLoading(false)
         })
         .catch(error => console.error(error))
 }
 
 
 // 整理要放進 table 的資料
-function sortData(data, region) {
+function HsinchuSortData(data, region) {
     let datas = data.records.locations[0].location;
     let wantedData = [];
-    datas.forEach((taipeiDistrict) => {
+    datas.forEach((HsinchuDistrict) => {
         let tempObj = {}
-        tempObj.district = taipeiDistrict.locationName;
-        tempObj.tmrDayDesc = taipeiDistrict.weatherElement[0].time[0].elementValue[0].value;
-        tempObj.tmrNightDesc = taipeiDistrict.weatherElement[0].time[1].elementValue[0].value;
-        tempObj.afterTmrDayDesc = taipeiDistrict.weatherElement[0].time[2].elementValue[0].value;
-        tempObj.afterTmrNightDesc = taipeiDistrict.weatherElement[0].time[3].elementValue[0].value;
+        tempObj.district = HsinchuDistrict.locationName;
+        tempObj.tmrDayDesc = HsinchuDistrict.weatherElement[0].time[0].elementValue[0].value;
+        tempObj.tmrNightDesc = HsinchuDistrict.weatherElement[0].time[1].elementValue[0].value;
+        tempObj.afterTmrDayDesc = HsinchuDistrict.weatherElement[0].time[2].elementValue[0].value;
+        tempObj.afterTmrNightDesc = HsinchuDistrict.weatherElement[0].time[3].elementValue[0].value;
         wantedData.push(tempObj)
     })
 
-    renderTaipeiWeather(wantedData, region)
+    renderHsinchuWeather(wantedData, region)
 }
 
 // parentNode=>titleTop
 // tagName=> "th"
-// tagName=> "title-district"
+// tagName=> "title-districtHsinchu"
 // content=>("地區" or null
 // childNodeTag=>"p"
 // childClassName=> ("date-txt", "week-txt")
@@ -146,19 +155,20 @@ function createTdTage(parentNode, tagName, content, className, childtext) {
 }
 
 // 渲染台北市各地區
-function renderTaipeiWeather(wantedData, region) {
-    let dateResult = getTaipeiDate();
-    let tmr = dateResult["tmr"].split("-");
-    let afterTmr = dateResult["afterTmr"].split("-");
+function renderHsinchuWeather(wantedData, region) {
+    let HsinchuDateResult = getHsinchuDate();
+    let tmr = HsinchuDateResult["tmr"].split("-");
+    let afterTmr = HsinchuDateResult["afterTmr"].split("-");
 
-    let taipei = document.querySelector("#Hsinchu");
+    let Hsinchu = document.querySelector("#Hsinchu");
+    console.log(Hsinchu)
 
-    let taipeiSection = document.createElement("table");
-    taipeiSection.setAttribute("class", "weather-report");
+    let HsinchuSection = document.createElement("table");
+    HsinchuSection.setAttribute("class", "weather-report");
 
     // tHead
 
-    let thead = taipeiSection.appendChild(document.createElement("thead"));
+    let thead = HsinchuSection.appendChild(document.createElement("thead"));
 
     let titleTop = thead.appendChild(document.createElement("tr"));
     titleTop.setAttribute("class", "title-top");
@@ -168,9 +178,9 @@ function renderTaipeiWeather(wantedData, region) {
 
     createThTage(titleTop, "th", "title-time", "時間", null, null)
     // ============================================================
-    createThTage(titleTop, "th", "title-date", null, null, "p", ("date-txt", "week-txt"), tmr, dateResult["tmrWeek"])
-    createThTage(titleTop, "th", "title-date", null, null, "p", ("date-txt", "week-txt"), afterTmr, dateResult["afterTmrWeek"])
-    taipeiSection.appendChild(thead);
+    createThTage(titleTop, "th", "title-date", null, null, "p", ("date-txt", "week-txt"), tmr, HsinchuDateResult["tmrWeek"])
+    createThTage(titleTop, "th", "title-date", null, null, "p", ("date-txt", "week-txt"), afterTmr, HsinchuDateResult["afterTmrWeek"])
+    HsinchuSection.appendChild(thead);
 
     // tBody
     let tbody = document.createElement("tbody");
@@ -179,7 +189,7 @@ function renderTaipeiWeather(wantedData, region) {
         let dayWeather = tbody.appendChild(document.createElement("tr"));
         dayWeather.setAttribute("class", "day");
 
-        createThTage(dayWeather, "th", "taipei-district", eachDistrict["district"], "2", null)
+        createThTage(dayWeather, "th", "Hsinchu-district", eachDistrict["district"], "2", null)
 
         createTdTage(dayWeather, ["td"], "白天")
 
@@ -200,7 +210,6 @@ function renderTaipeiWeather(wantedData, region) {
         tbody.appendChild(nightWeather);
     })
 
-    // taipeiSection.appendChild(thead);
-    taipeiSection.appendChild(tbody);
-    taipei.appendChild(taipeiSection);
+    HsinchuSection.appendChild(tbody);
+    Hsinchu.appendChild(HsinchuSection);
 }
